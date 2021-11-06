@@ -32,7 +32,7 @@ npm i
 after that write
 
 ```bash
-nodemon
+npm start
 ```
 
 server side will run.
