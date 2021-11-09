@@ -8,16 +8,16 @@ const get = function(){
 }
 
 const filter = function(responseData){
-    const filtered = Object.keys(responseData)
+    const filteredData = Object.keys(responseData)
       .filter(key => filteredKeys.includes(key))
       .reduce((obj, key) => {
         obj[key] = responseData[key];
         return obj;
       }, {});
   
-    console.log(filtered);
-    result = buildObject(filtered);
-    return result;
+    console.log(filteredData);
+    responseData = buildObject(filteredData);
+    return responseData;
 }
 
 const buildObject = function(filteredData){
