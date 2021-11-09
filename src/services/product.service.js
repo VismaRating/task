@@ -23,13 +23,14 @@ const filter = function(responseData){
 const buildObject = function(filteredData){
     var arrayLength = filteredData.beliggenhedsadresse.length;
     lastIndex = arrayLength - 1; 
-    object["Company Name"] = filteredData.navne[0].navn;
+    object["CompanyName"] = filteredData.navne[0].navn;
     object["Address"] = filteredData.beliggenhedsadresse[lastIndex].vejnavn + " " + filteredData.beliggenhedsadresse[lastIndex].husnummerFra;
-    
-    object["Postal code and City"] =  filteredData.beliggenhedsadresse[lastIndex].postnummer + " " + filteredData.beliggenhedsadresse[lastIndex].postdistrikt;
-    object["Phone number and email"]  = filteredData.telefonNummer + " " + filteredData.obligatoriskEmail;
+    object["PostalCode"] = filteredData.beliggenhedsadresse[lastIndex].postnummer;
+    object["City"] = filteredData.beliggenhedsadresse[lastIndex].postdistrikt;
+    object["PhoneNumber"]  = filteredData.telefonNummer;
+    object["email"]  = filteredData.obligatoriskEmail;
     object["Status"]  = filteredData.virksomhedsstatus[0].status;
-    object["Company form"] = filteredData.virksomhedsform[0].langBeskrivelse; 
+    object["CompanyForm"] = filteredData.virksomhedsform[0].langBeskrivelse; 
     object["Industry"] = filteredData.hovedbranche[0].branchekode;
     
     return object;
