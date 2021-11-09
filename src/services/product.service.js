@@ -1,32 +1,30 @@
-const data = require('../payload.json');
-var fs = require('fs');
-const filtered_keys = ['cvrNummer', 'status', 'telefonNummer', 'navne', 'virksomhedsform'];
+const data = require('../database/payload.json');
+const filteredKeys = ['navne', 'postadresse', 'cvrNummer', 'obligatoriskEmail' , 'virksomhedsstatus', 'telefonNummer', 'virksomhedsform', 'beliggenhedsadresse'];
+var object = {"Company Name": "", "Address": "", "Postal code and City" : "", "Phone number and email" :"", "Status": "", "Company form": "", "Industry": ""};
 
 const getAll = function(){
-    var outputFilename = 'my.json';
-
-    fs.writeFile(outputFilename, JSON.stringify(data, null, 4), function(err) {
-    if(err) {
-        console.log(err);
-        }else {
-        console.log("JSON saved to " + outputFilename);
-        }
-    }); 
     var obj = data['hits']['hits'][0]['_source']['Vrvirksomhed'];
-    //return obj;
     return filter(obj);
 }
 
-const filter = function(raw_data){
-    const filtered = Object.keys(raw_data)
-      .filter(key => filtered_keys.includes(key))
+const filter = function(responseData){
+    const filtered = Object.keys(responseData)
+      .filter(key => filteredKeys.includes(key))
       .reduce((obj, key) => {
-        obj[key] = raw_data[key];
+        obj[key] = responseData[key];
         return obj;
       }, {});
   
     console.log(filtered);
-    return filtered;
+    result = buildObject(filtered);
+    return result;
+}
+
+const buildObject = function(filteredData){
+    object["Company Name"] = filteredData.navne[0].navn
+    object["Address"] = filteredData.beliggenhedsadresse[2].vejnavn
+    
+    return object;
 }
 
 module.exports = {
