@@ -1,5 +1,5 @@
 const data = require('../payload.json');
-const filtered_keys = ['took', 'timed_out'];
+const filtered_keys = ['took', 'timed_out','cvr','status','telefonNummer'];
 // const language = 'en'
 // var translator = require('translate-json-object')(); 
 
