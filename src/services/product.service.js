@@ -1,11 +1,11 @@
 const data = require('../payload.json');
-var translator = require('translate-json-object')(); 
+const filtered_keys = ['took', 'timed_out'];
+// const language = 'en'
+// var translator = require('translate-json-object')(); 
 
-translator.init({
-  googleApiKey: 'api_key',
-});
-
-
+// translator.init({
+//     googleApiKey: 'AIzaSyCJLL9sKN_P6gAU6bqG2RhaC1TBocVxPJ8',
+// });
 
 // translator.translate(example, 'es')
 //     .then(function(data) {
@@ -13,32 +13,23 @@ translator.init({
 //     }).catch(function(err) {
 //       console.log('error ', err)
 //     });
-    
-const get = function(attr, value){
-    return getAll().filter(product => hasAttribute(product, attr) && containsValue(product, attr, value));
-}
 
 const getAll = function(){
-    return data;
+    return filter(data);
 }
 
-const containsValue = function(product, attribute, value){
-    return (product[attribute] == value) || isMember(product[attribute], value);
-}
-
-const isMember = function(attribute, value){
-    return attribute.toLowerCase().includes(value.toLowerCase());
-}
-
-const hasAttribute  = function(product, attribute){
-    if(product.hasOwnProperty(attribute)){
-        return true;    
-   }
-    console.log(`GET failed for product: ${JSON.stringify(product, null, 2)}, invalid attr: ${attribute} in data`);
-    return false;
+const filter = function(raw_data){
+    const filtered = Object.keys(raw_data)
+      .filter(key => filtered_keys.includes(key))
+      .reduce((obj, key) => {
+        obj[key] = raw_data[key];
+        return obj;
+      }, {});
+  
+    console.log(filtered);
+    return filtered;
 }
 
 module.exports = {
-    get,
     getAll
 };
