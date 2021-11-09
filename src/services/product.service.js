@@ -1,6 +1,6 @@
 const data = require('../payload.json');
 var fs = require('fs');
-const filtered_keys = ['cvrNummer', 'status', 'telefonNummer'];
+const filtered_keys = ['cvrNummer', 'status', 'telefonNummer', 'navne', 'virksomhedsform'];
 
 const getAll = function(){
     var outputFilename = 'my.json';
