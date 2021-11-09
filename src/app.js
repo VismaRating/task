@@ -11,7 +11,7 @@ const serviceName = "simple_web_service";
 app.use(cors());
 app.use(routes);
 
-//start http server
+//start http server running locally
 const httpServer = http.createServer(app);
 httpServer.listen(port);
 console.log(`[${serviceName}] http server listening at port ${port}`);
