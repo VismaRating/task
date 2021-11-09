@@ -1,29 +1,21 @@
 var expect = require('chai').expect,
-  data = require('../data.json');
+  data = require('../database/payload.json');
   
-describe("Test data contain all attributes", function (){
-  it("contains attributes", function(){
-    for(var d of data) {
-      expect(d['id']).to.be.a('number');
-      expect(d['type']).to.be.a('string');
-      expect(d['subject']).to.be.a('string');
-      expect(d['description']).to.be.a('string');
-      expect(d['priority']).to.be.a('string');
-      expect(d['status']).to.be.a('string');
-    }  
-  })
-})
-
-  
-describe("Test all data types are valid", function (){
+describe("Test data have valid keys", function (){
   it("expects valid data", function(){
-    for(var d of data) {
-      expect(d).to.have.property('id');
-      expect(d).to.have.property('type');
-      expect(d).to.have.property('subject');
-      expect(d).to.have.property('description');
-      expect(d).to.have.property('priority');
-      expect(d).to.have.property('status');
-    }  
+      var d = data['hits']['hits'][0]['_source']['Vrvirksomhed'];
+      var arrayLength = d.beliggenhedsadresse.length;
+      lastIndex = arrayLength - 1;
+       
+      expect(d.navne[0]).to.have.property('navn');
+      expect(d.beliggenhedsadresse[lastIndex]).to.have.property('vejnavn');
+      expect(d.beliggenhedsadresse[lastIndex]).to.have.property('husnummerFra');
+      expect(d.beliggenhedsadresse[lastIndex]).to.have.property('postnummer');
+      expect(d.beliggenhedsadresse[lastIndex]).to.have.property('postdistrikt');
+      expect(d).to.have.property('telefonNummer');
+      expect(d).to.have.property('obligatoriskEmail');  
+      expect(d.virksomhedsstatus[0]).to.have.property('status');
+      expect(d.virksomhedsform[0]).to.have.property('langBeskrivelse');  
+      expect(d.hovedbranche[0]).to.have.property('branchekode');  
   })
 })
