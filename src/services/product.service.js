@@ -1,5 +1,19 @@
 const data = require('../payload.json');
+var translator = require('translate-json-object')(); 
 
+translator.init({
+  googleApiKey: 'api_key',
+});
+
+
+
+// translator.translate(example, 'es')
+//     .then(function(data) {
+//       console.log(data);
+//     }).catch(function(err) {
+//       console.log('error ', err)
+//     });
+    
 const get = function(attr, value){
     return getAll().filter(product => hasAttribute(product, attr) && containsValue(product, attr, value));
 }
