@@ -3,8 +3,7 @@ const product = require('./product.route');
 
 const router = express.Router();
 
-router.use('/get', product);
-
-router.get('/', (req, res) => res.send('Sample Node API Version1'));
+// router.get('/', (req, res) => res.send('Simple Node API Version1'));
+router.use('/', product);
 
 module.exports = router;
