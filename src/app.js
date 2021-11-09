@@ -6,7 +6,7 @@ const cors = require('cors');
 const routes = require('./routes/index.route');
 const app = express();
 const port = 8080;
-const serviceName = "simple_rest_api";
+const serviceName = "simple_web_service";
 
 app.use(cors());
 app.use(routes);

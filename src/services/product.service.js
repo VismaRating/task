@@ -1,4 +1,4 @@
-const data = require('../data.json');
+const data = require('../payload.json');
 
 const get = function(attr, value){
     return getAll().filter(product => hasAttribute(product, attr) && containsValue(product, attr, value));
