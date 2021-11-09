@@ -1,6 +1,5 @@
 const express = require('express');
 const product = require('./product.route');
-const swagger = require('./swagger.route');
 
 const router = express.Router();
 
