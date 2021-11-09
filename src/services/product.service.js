@@ -1,8 +1,8 @@
 const data = require('../database/payload.json');
-const filteredKeys = ['navne', 'postadresse', 'cvrNummer', 'obligatoriskEmail' , 'virksomhedsstatus', 'telefonNummer', 'virksomhedsform', 'beliggenhedsadresse'];
-var object = {"Company Name": "", "Address": "", "Postal code and City" : "", "Phone number and email" :"", "Status": "", "Company form": "", "Industry": ""};
+const filteredKeys = ['navne', 'postadresse', 'cvrNummer', 'obligatoriskEmail' , 'virksomhedsstatus', 'telefonNummer', 'virksomhedsform', 'beliggenhedsadresse','hovedbranche'];
+var object = {};
 
-const getAll = function(){
+const get = function(){
     var obj = data['hits']['hits'][0]['_source']['Vrvirksomhed'];
     return filter(obj);
 }
@@ -21,12 +21,20 @@ const filter = function(responseData){
 }
 
 const buildObject = function(filteredData){
-    object["Company Name"] = filteredData.navne[0].navn
-    object["Address"] = filteredData.beliggenhedsadresse[2].vejnavn
+    var arrayLength = filteredData.beliggenhedsadresse.length;
+    lastIndex = arrayLength - 1; 
+    object["Company Name"] = filteredData.navne[0].navn;
+    object["Address"] = filteredData.beliggenhedsadresse[lastIndex].vejnavn + " " + filteredData.beliggenhedsadresse[lastIndex].husnummerFra;
+    
+    object["Postal code and City"] =  filteredData.beliggenhedsadresse[lastIndex].postnummer + " " + filteredData.beliggenhedsadresse[lastIndex].postdistrikt;
+    object["Phone number and email"]  = filteredData.telefonNummer + " " + filteredData.obligatoriskEmail;
+    object["Status"]  = filteredData.virksomhedsstatus[0].status;
+    object["Company form"] = filteredData.virksomhedsform[0].langBeskrivelse; 
+    object["Industry"] = filteredData.hovedbranche[0].branchekode;
     
     return object;
 }
 
 module.exports = {
-    getAll
+    get
 };

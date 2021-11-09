@@ -1,11 +1,11 @@
 
 const productService = require('../services/product.service');
 
-const getAll = function(req, res){
+const get = function(req, res){
  console.log(`get all`)
- res.send(productService.getAll())
+ res.send(productService.get())
 }
 
 module.exports = {
- getAll
+ get
 };
