@@ -1,10 +1,19 @@
 var expect = require('chai').expect,
   data = require('../database/payload.json');
-
+const productService = require('../services/product.service');
 var d = data['hits']['hits'][0]['_source']['Vrvirksomhed'];
 var arrayLength = d.beliggenhedsadresse.length;
 var lastIndex = arrayLength - 1;
-  
+
+describe("Test filter function", function (){
+  it("expects valid data from filter ", function(){
+      var result = productService.filter(d);
+      for(var k of productService.filteredKeys){
+        expect(result).to.have.property(k);  
+      }
+  })
+})
+
 describe("Test data have valid key navn", function (){
   it("expects valid data navn ", function(){
       expect(d.navne[0]).to.have.property('navn');

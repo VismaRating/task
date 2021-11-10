@@ -4,7 +4,8 @@ var object = {};
 
 const get = function(){
     var obj = data['hits']['hits'][0]['_source']['Vrvirksomhed'];
-    return filter(obj);
+    filteredData = filter(obj);
+    return buildObject(filteredData);
 }
 
 const filter = function(responseData){
@@ -17,7 +18,7 @@ const filter = function(responseData){
   
     console.log(filteredData);
     responseData = buildObject(filteredData);
-    return responseData;
+    return filteredData;
 }
 
 const buildObject = function(filteredData){
@@ -37,5 +38,7 @@ const buildObject = function(filteredData){
 }
 
 module.exports = {
-    get
+    get,
+    filter, 
+    filteredKeys
 };
