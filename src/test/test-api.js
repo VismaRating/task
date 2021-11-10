@@ -14,6 +14,7 @@ describe('/GET data', () => {
        .end((err, res) => {
              res.should.have.status(200);
              res.body.should.be.a('object');
+             res.body.should.have.all.keys(['CompanyName', 'Address', 'City', 'CompanyForm', 'Email', 'Industry', 'PhoneNumber', 'PostalCode', 'Status']);
          done();
        });
  });
