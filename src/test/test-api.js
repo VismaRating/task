@@ -9,13 +9,13 @@ chai.use(chaiHttp);
 
 describe('/GET data', () => {
  it('it should GET all the data', (done) => {
-   chai.request(localhost)
-       .get('/')
-       .end((err, res) => {
-             res.should.have.status(200);
-             res.body.should.be.a('object');
-             res.body.should.have.all.keys(['CompanyName', 'Address', 'City', 'CompanyForm', 'Email', 'Industry', 'PhoneNumber', 'PostalCode', 'Status']);
-         done();
-       });
+  chai.request(localhost)
+    .get('/')
+    .end((err, res) => {
+      res.should.have.status(200);
+      res.body.should.be.a('object');
+      res.body.should.have.all.keys(['CompanyName', 'Address', 'City', 'CompanyForm', 'Email', 'Industry', 'PhoneNumber', 'PostalCode', 'Status']);
+      done();
+    });
  });
 });
