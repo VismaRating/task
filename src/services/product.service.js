@@ -16,7 +16,7 @@ const filter = function(responseData){
         return obj;
       }, {});
   
-    console.log(filteredData);
+    // console.log(filteredData);
     responseData = buildObject(filteredData);
     return filteredData;
 }
