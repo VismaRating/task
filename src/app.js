@@ -13,7 +13,7 @@ app.use(routes);
 
 //start http server running locally
 const httpServer = http.createServer(app);
-httpServer.listen(port);
+const  server = httpServer.listen(port);
 console.log(`[${serviceName}] http server listening at port ${port}`);
 
-module.exports = { app };
+module.exports = { app, server };
