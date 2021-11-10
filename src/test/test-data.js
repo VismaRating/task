@@ -35,41 +35,41 @@ describe("Test data have valid key husnummerFra", function (){
 describe("Test data have valid key postnummer", function (){
   it("expects valid data postnummer", function(){
       expect(d.beliggenhedsadresse[lastIndex]).to.have.property('postnummer');
-    })
   })
+})
   
 describe("Test data have valid key postdistrikt", function (){
   it("expects valid data postdistrikt", function(){
       expect(d.beliggenhedsadresse[lastIndex]).to.have.property('postdistrikt');
-    })
   })
+})
     
 describe("Test data have valid key telefonNummer", function (){
   it("expects valid data telefonNummer", function(){
       expect(d).to.have.property('telefonNummer');
-    })
   })
+})
 
 describe("Test data have valid key obligatoriskEmail", function (){
   it("expects valid data obligatoriskEmail", function(){
       expect(d).to.have.property('obligatoriskEmail');  
-    })
   })
+})
         
 describe("Test data have valid key status", function (){
   it("expects valid data status", function(){
       expect(d.virksomhedsstatus[0]).to.have.property('status');
-    })
   })
+})
           
 describe("Test data have valid key langBeskrivelse", function (){
   it("expects valid data langBeskrivelse", function(){
       expect(d.virksomhedsform[0]).to.have.property('langBeskrivelse');  
-    })
   })
+})
             
 describe("Test data have valid key branchekode", function (){
   it("expects valid data branchekode", function(){
       expect(d.hovedbranche[0]).to.have.property('branchekode');   
-    })
   })
+});
