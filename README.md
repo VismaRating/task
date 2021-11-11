@@ -1,7 +1,7 @@
 ### Description
 ### Task 
 
-A simple web service that parses the json file found in src/payload.json  
+A simple web service that parses the json file found in server/payload.json  
 and returns a json response containing the fields listed below.  
 The file contains public data from the CVR registry. For reference, see https://datacvr.virk.dk/data/visenhed?enhedstype=virksomhed&id=40863753&language=da  
 The dataset contains keys that have names in danish. Some translation is needed.  
@@ -20,8 +20,8 @@ You can verify by running in the command line, example:
   ```node -v```  --> ```v12.19.1```  
   ```npm -v```  --> ```6.14.8```   
   
-Clone the repo locally and cd at "src" folder.  
-At the root directory of "src" folder run the following command:  
+Clone the repo locally and cd at "server" folder.  
+At the root directory of "server" folder run the following command:  
 ```bash
 npm install
 ```  
@@ -55,7 +55,7 @@ Will start the broswer on```http://localhost:3000``` and display the company inf
       
 ### Run the unit tests  
 To test the application and run the unit tests  
-in the root directory of the project (src)  
+got to the root directory of the folder server and    
 run the following command from the terminal:  
 ```bash
   npm test
@@ -65,9 +65,9 @@ the description and result of each unit test in the terminal.
 
 ### Example:
 ```
- ~/Documents/VismaProject/task/src (master)$ npm test  
+ ~/Documents/VismaProject/task/server (master)$ npm test  
 
-> web-service@1.0.0 test C:\Users\testuser2\Documents\VismaProject\task\src
+> web-service@1.0.0 test C:\Users\testuser2\Documents\VismaProject\task\server
 > mocha
 
 [web-service] http server listening at port 8080

@@ -1,8 +1,8 @@
 FROM node:12
-COPY ./src /var/task
+COPY ./server /var/task
 WORKDIR /var/task 
 
-COPY src/package*.json ./
+COPY server/package*.json ./
 
 RUN npm install
 COPY . .
