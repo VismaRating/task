@@ -39,14 +39,14 @@ The output ```http server listening at port 8080``` will be printed in the termi
 Open your broswer and go to ```http://localhost:8080``` and you should see the returned information in a json format.      
  
 ### Start the client
-After starting the server succesffully navigate to the client folder and     
+After starting the server successfully, go inside the client folder and     
 at the root directory run from the terminal the command:  
 ```bash
 npm install
 ```  
 This will install all the dependencis needed to run the client app.  
 
-To start the client at the root directory of client folder run:     
+To start the client at the root directory of the client folder run:     
 ```bash
 npm start
 ```
