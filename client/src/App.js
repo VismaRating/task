@@ -8,19 +8,8 @@ function App() {
 
   useEffect(()=>{
     axios.get('http://localhost:8080')
-        .then(res=>{
-            setData({
-                CompanyName:res.data.CompanyName,
-                Address:res.data.Address,
-                PostalCode:res.data.PostalCode,
-                City:res.data.City,
-                PhoneNumber:res.data.PhoneNumber,
-                Email:res.data.Email,
-                Status:res.data.Status,
-                CompanyForm:res.data.CompanyForm,
-                Industry:res.data.Industry
-              })
-            console.log(data)
+        .then(res => {
+            return setData(res.data);
         })
         .catch(err=>{
             console.log(err);
@@ -30,7 +19,7 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <p>Compnay Name: {data.CompanyName}</p>
+        <p>Company Name: {data.CompanyName}</p>
         <p>Address: {data.PostalCode} {data.Address}</p>
         <p>City: {data.City}</p>
         <p>Phone number and Email: {data.PhoneNumber} {data.Email}</p>
