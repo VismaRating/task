@@ -7,8 +7,9 @@ function App() {
   const [data, setData] = useState([]);
 
   useEffect(()=>{
-    axios.get('http://localhost:8080')
+    axios.get('http://localhost:8080/info')
         .then(res => {
+            console.log(res);
             return setData(res.data);
         })
         .catch(err=>{

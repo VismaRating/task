@@ -14,7 +14,7 @@ describe('/GET data', () => {
 
  it('it should GET all the data', (done) => {
   chai.request(localhost)
-    .get('/')
+    .get('/info')
     .end((err, res) => {
       res.should.have.status(200);
       res.body.should.be.a('object');

@@ -36,7 +36,7 @@ node app.js
 This is the entry point of the appication.  
 The server will start running and listening on port 8080.  
 The output ```http server listening at port 8080``` will be printed in the terminal.  
-Open your broswer and go to ```http://localhost:8080``` and you should see the returned information in a json format.      
+Open your broswer and go to ```http://localhost:8080/info``` and you should see the returned information in a json format.      
  
 ### Start the client
 After starting the server successfully, go inside the client folder and     
