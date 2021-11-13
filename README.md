@@ -37,6 +37,18 @@ Start:
 The above will start the client application on port 3000.  
 Will start the broswer on```http://localhost:3000``` and display the company information.  
 
+### Build and run tests  
+Build:  
+```bash
+docker build -t test -f test.Dockerfile .
+ ```      
+Start:  
+```bash
+ docker run -it -p 8080:8080 test
+```    
+The above will start and run all test in the server.  
+
+
 ### Build and run without Docker
 ### Setup locally
 Make sure node.js and npm packet manager are installed in you machine.  
