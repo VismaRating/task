@@ -12,6 +12,15 @@ The dataset contains keys that have names in danish. Some translation is needed.
 * Phone number and email
 * Status 
 * Company form
+
+### Build and run using Docker  
+### Build and start server  
+docker build -t server -f Dockerfile .  
+docker run -it -p 8080:8080 server  
+
+### Build and start client  
+
+### Build and run without Docker
 ### Setup locally
 Make sure node.js and npm packet manager are installed in you machine.  
 Download node.js from [https://nodejs.org/en/download/](https://nodejs.org/en/download/)   
