@@ -14,11 +14,25 @@ The dataset contains keys that have names in danish. Some translation is needed.
 * Company form
 
 ### Build and run using Docker  
-### Build and start server  
-docker build -t server -f Dockerfile .  
-docker run -it -p 8080:8080 server  
+### Build and start server
+Build:  
+```bash
+ docker build -t server -f server.Dockerfile .
+ ```    
+Start:  
+```bash 
+docker run -it -p 8080:8080 server 
+```    
 
 ### Build and start client  
+Build:  
+```bash
+ docker build -f client.Dockerfile -t client .
+ ```      
+Start:  
+```bash
+ docker run -it -p 3000:3000 client
+```    
 
 ### Build and run without Docker
 ### Setup locally
