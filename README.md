@@ -23,6 +23,7 @@ Start:
 ```bash 
 docker run -it -p 8080:8080 server 
 ```    
+Open your broswer and go to ```http://localhost:8080/info``` and you should see the returned information in a json format.      
 
 ### Build and start client  
 Build:  
@@ -33,6 +34,8 @@ Start:
 ```bash
  docker run -it -p 3000:3000 client
 ```    
+The above will start the client application on port 3000.  
+Will start the broswer on```http://localhost:3000``` and display the company information.  
 
 ### Build and run without Docker
 ### Setup locally
